@@ -1,0 +1,47 @@
+x make form show on new page
+x make new page post to new
+x add post handler for new to just print post vals individually
+x add logic to save hashes to redis
+x test save, do many submits
+x test sorting using cli
+x iterate to fix any issues
+x write sort in main func
+x write a non-styled ui index page to get the entries
+x markup
+x style it somehow
+(later) polish layouts etc
+    x add link to new
+    (later) add h1, style it
+x set it up on ec2 instance
+    x set up redis
+    x put redis in fsync every second mode
+    x set up code 
+    x test it out
+
+(continued) need to figure out automated deployment strategy 
+    x make small change to python code
+    x deploy it to server 
+    x see if new change is live
+    x if so great nope
+    x if not, need to look into restarting uwsgi to reload the python code
+        x ... just send HUP signal to master process
+
+need to figure out version control for app (probably github)
+    x research a good hosted version control system - github public (free!)
+    set up the system (register, create repo, etc)
+    checkin current state of sugarlog
+
+automate it (need to write pid to file)
+    learn about fabric
+    write a fabric file to fetch from version control (py file, templates dir, static dir), scp to server, HUP master process so children are restarted
+    restart uwsgi, and have it save master process pid to some standard location
+    test a few changes to the site (exciting !)
+
+add comments support - so i can make suggestions to dad (probably make it somewhat generic so we can make comments back and forth)
+
+potential features:
+add reply button so dad can answer any questions i make in my comments
+add ability for me to highlight items in the list that are good, bad, neutral
+mark blood sugar as good/bad
+insert current time by default, add ability to enter manual time
+can also add email/text message notifications for new posts

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>blood sugar log</title>
+<style type="text/css" media="screen">
+/* <![CDATA[ */
+@import url(static/style3.css);
+/* ]]> */
+</style>
+</head>
+<body>
+  <div id="wrapper">
+
+<form action="/new" method="post">
+<table class="vedit" summary="New Entry">
+
+<tr> 
+  <td> 
+    <div class="date">{{ day_display }}</div> 
+    <input type="hidden" name="day" value="{{ day_input }}" />
+  </td> 
+</tr> 
+
+<tr> 
+  <td> 
+    <div class="head_title">time of day</div> 
+    <div class="small">(e.g. before breakfast)</div><br class="clear" /> 
+    <div style="width: 280px; float: left;"><input class="required sm" type="text" name="time" value="" size="15" /></div> 
+  </td> 
+</tr> 
+
+<tr> 
+  <td> 
+    <div class="head_title">blood sugar</div> 
+    <div class="space"></div><br class="clear" /> 
+    <div style="width: 280px; float: left;"><input class="required sm" type="text" name="blood_sugar" value="" size="15" /></div> 
+  </td> 
+</tr> 
+
+<tr> 
+  <td> 
+    <div class="head_title">notes</div> 
+    <div class="small">(e.g. ate steak and asparagus for dinner)</div><br class="clear" /> 
+    <!--<div style="width: 280px; float: left;"><input class="required sm" type="text" name="name_f" value="" size="15" /></div> -->
+    <div style="width: 280px; float: left;"><textarea name="notes" rows="6" cols="40"></textarea>
+  </td> 
+</tr> 
+
+</table>
+<input class="submit" type="submit" value="submit" />
+</form>
+
+<!--
+    <form action="/" method="post"> 
+        <fieldset>
+            <legend>New Entry</legend>
+            <ol>
+                <li><p>{{ today }}</p>
+                <input class="field" type="hidden" name="date" id="date" value="{{ today }}" /> 
+                <li><label for="when">when</label><br />
+                <input class="field" type="text" name="when" id="when" /></li>
+                <li><label for="blood_sugar">blood sugar</label><br />
+                <input class="field" type="text" name="blood_sugar" id="blood_sugar" /></li>
+                <li><label for="notes">notes</label><br />
+                <textarea name="notes" id="notes" rows="5" cols="25"></textarea></li>
+            </ol>
+            <input type="submit" value="Submit" />
+        </fieldset>
+    </form> 
+-->
+  </div>
+</body>
+</html>

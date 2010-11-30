@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>blood sugar log</title>
+<style type="text/css" media="screen">
+/* <![CDATA[ */
+@import url(static/style3.css);
+/* ]]> */
+</style>
+</head>
+<body>
+  <div id="wrapper">
+  <p id="nav"><a href="/new">new entry</a></p>
+  {% for day in days %}
+    <p id="day">{{ day }}</p>
+    {% for entry in entries[day] %}
+    <p><span id="blood_sugar">{{ entry.blood_sugar }}</span> <span id="time">{{ entry.time }}</span></p>
+    <p id="notes">{{ entry.notes }}</p>
+    {% endfor %}
+  {% endfor %}
+  </div>
+</body>
+</html>

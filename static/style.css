@@ -1,0 +1,95 @@
+* {
+        margin: 0;
+        padding: 0;
+        }   
+    
+html {
+        font-size: 100%;
+        }   
+
+body {
+        font: 62.5%/1.5 Verdana, Arial, Helvetica, sans-serif;
+        }   
+
+#wrapper {
+        font-size: 1.2em;
+        line-height: 1.5em;
+        color: #777;
+        }   
+
+/* ---------- add your code below ---------- */
+
+#wrapper {
+    margin: 2em;
+}
+
+h1 {
+    font-size: 3em;
+    padding: .25em .25em .25em 0;
+}
+
+#flash {
+    font-size: 1.5em;
+    color: #dd0000;
+    padding: .5em;
+    background-color: #ffaaaa;
+    border: 2px solid #dd0000;
+}
+
+#noflash {
+    padding: 1.5em;
+}
+
+#today, label {
+    font-size: 1.5em;
+    padding: .5em .5em .5em 0;
+    display: block;
+}
+
+#today {
+    color:#00ADEF
+}
+
+.field {
+    width: 400px;
+    font-size: 1.5em;
+    color: #444;
+    border: 1px solid #ccc;
+    padding: .5em;
+    display: table-cell;
+}
+
+textarea {
+    width: 400px;
+    font-size: 1.5em;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #444;
+    border: 1px solid #ccc;
+    padding: .5em;
+    display: table-cell;
+}
+
+
+.submitButton {
+    font-size: 1.5em;
+    padding: .25em;
+    margin-top: .5em;
+}
+
+p.data {
+    font-size: 1.5em;
+    margin-top: 2em;
+    padding: .5em .5em .5em 0;
+}
+
+span {
+    font-weight: bold;
+}
+
+#emailText {
+    color:#00adef;
+}
+
+#rentalCountText {
+    color:#ff0066;
+}

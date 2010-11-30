@@ -1,0 +1,63 @@
+* {
+		margin: 0;
+		padding: 0;
+		}
+	
+html {
+		font-size: 100%;
+		}
+
+body {
+		font: 62.5%/1.5 Verdana, Arial, Helvetica, sans-serif;
+		}
+
+#wrapper {
+		font-size: 1.5em;
+		line-height: 1.5em;
+		}
+
+p {
+		margin-bottom: 1.5em;
+		}
+
+/* ---------- add your code below ---------- */
+
+#wrapper {
+    font-family: Georgia, serif;
+    color: #666;
+    width: 400px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 1em 0;
+}
+
+input.field {
+    margin-bottom: 1em;
+}
+
+textarea, input.field {
+    border: 1px solid #aaa;
+}
+
+label {
+    font-weight: bold;
+}
+
+li {
+    list-style: none;
+}
+
+fieldset {
+    border: 0;
+}
+
+p {
+    font-weight: bold;
+}
+
+legend {
+    border-bottom: 1px solid black;
+    visibility: hidden;
+}
