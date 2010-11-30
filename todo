@@ -36,6 +36,7 @@ automate it (need to write pid to file)
     x write a fabric file to fetch from version control (py file, templates dir, static dir), scp to server, HUP master process so children are restarted
     (later) restart uwsgi, and have it save master process pid to some standard location
     x test a few changes to the site (exciting !)
+    possibly combine git commit -a, and push origin master into fabfile (ask for user input on commit message)
 
 add comments support - so i can make suggestions to dad (probably make it somewhat generic so we can make comments back and forth)
 
