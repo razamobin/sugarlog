@@ -26,16 +26,16 @@ x set it up on ec2 instance
     x if not, need to look into restarting uwsgi to reload the python code
         x ... just send HUP signal to master process
 
-need to figure out version control for app (probably github)
+x need to figure out version control for app (probably github)
     x research a good hosted version control system - github public (free!)
-    set up the system (register, create repo, etc)
-    checkin current state of sugarlog
+    x set up the system (register, create repo, etc)
+    x checkin current state of sugarlog
 
 automate it (need to write pid to file)
-    learn about fabric
-    write a fabric file to fetch from version control (py file, templates dir, static dir), scp to server, HUP master process so children are restarted
-    restart uwsgi, and have it save master process pid to some standard location
-    test a few changes to the site (exciting !)
+    x learn about fabric
+    x write a fabric file to fetch from version control (py file, templates dir, static dir), scp to server, HUP master process so children are restarted
+    (later) restart uwsgi, and have it save master process pid to some standard location
+    x test a few changes to the site (exciting !)
 
 add comments support - so i can make suggestions to dad (probably make it somewhat generic so we can make comments back and forth)
 
