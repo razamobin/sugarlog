@@ -7,12 +7,15 @@ env.hosts = ['sugarlog.com']
 env.key_filename = '/home/rmobin/.ssh/ec2-sample-key.pem'
 
 def deploy():
-    local('git status -s')
+    out = local('git status -s')
+    print out
     if not confirm('commit above changes?'):
         abort('aborting deploy at your request')
     msg = fabric.operations.prompt('enter the commit message:')
-    local('git commit -a -m "%s"' % msg)
-    local('git push origin master')
+    out = local('git commit -a -m "%s"' % msg)
+    print out
+    out = local('git push origin master')
+    print out
     local('tar czf /tmp/sugarlog.tgz sugarlog.py static templates')
     put('/tmp/sugarlog.tgz', '/tmp/')
     with cd('/mnt/sda/sugarlog'):
