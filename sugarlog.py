@@ -20,10 +20,6 @@ def after_request(response):
     g.redis.connection.disconnect()
     return response
 
-@app.route('/fab')
-def fab():
-    return '<h1>fab</h1>'
-
 @app.route('/')
 def main():
     days = []
