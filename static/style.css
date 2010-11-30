@@ -14,82 +14,128 @@ body {
 #wrapper {
         font-size: 1.2em;
         line-height: 1.5em;
-        color: #777;
-        }   
+        }
 
-/* ---------- add your code below ---------- */
-
+/* rest */
 #wrapper {
-    margin: 2em;
+    width: 400px;
+    margin: 3em auto;
+}
+
+body {
+	color: #727272;
 }
 
 h1 {
-    font-size: 3em;
-    padding: .25em .25em .25em 0;
-}
-
-#flash {
     font-size: 1.5em;
-    color: #dd0000;
     padding: .5em;
-    background-color: #ffaaaa;
-    border: 2px solid #dd0000;
 }
 
-#noflash {
-    padding: 1.5em;
+table {
+	border-collapse: separate;
+	border-spacing: 0;
 }
 
-#today, label {
-    font-size: 1.5em;
-    padding: .5em .5em .5em 0;
-    display: block;
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
 }
 
-#today {
-    color:#00ADEF
+.clear {
+	clear: both;
 }
 
-.field {
-    width: 400px;
-    font-size: 1.5em;
-    color: #444;
-    border: 1px solid #ccc;
-    padding: .5em;
-    display: table-cell;
-}
-
-textarea {
-    width: 400px;
-    font-size: 1.5em;
+input, textarea {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    color: #444;
-    border: 1px solid #ccc;
-    padding: .5em;
-    display: table-cell;
 }
 
+textarea, .sm {
+	border: 1px solid #c3c3c3;
+	background: #f4f4f4;
+	padding: .6em;
+}
 
-.submitButton {
+.sm {
+	width: 260px;
+}
+
+.small { 
+    color: #7c7c7c; 
+    font-style: italic; 
+    float: left;    
+    margin-bottom: 1.2em; 
+}
+
+.space { 
+    margin-bottom: 1.2em; 
+}
+
+.date, .head_title { 
     font-size: 1.5em;
+    line-height: 1em;
+    margin-right: .5em; 
+    float: left; 
+    display: inline; 
+}
+
+p {
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+#notes {
+    margin-bottom: 1.5em;
+    color: #aaa;
+    /*background-color: #f7f7f7;*/
+}
+
+#blood_sugar {
+    /*color: #ff0066;*/
+    color: #FF4488;
+}
+
+#time {
+    /*color: #00adef;*/
+}
+
+#day {
+    margin-bottom: 1.5em;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+#nav {
+    float: right;
+}
+
+a:link {
+    color: #00adef;
+}
+
+a:visited { 
+    color: #00adef;
+}
+
+a:hover { 
+    color: #FF4488;
+}
+
+.head_title { 
+    color: #00adef;
+}
+
+.date {
+    color: #555;
+}
+
+.submit {
     padding: .25em;
-    margin-top: .5em;
-}
-
-p.data {
     font-size: 1.5em;
-    margin-top: 2em;
-    padding: .5em .5em .5em 0;
+    color: #222;
+    margin-left: .75em;
 }
 
-span {
-    font-weight: bold;
-}
-
-#emailText {
-    color:#00adef;
-}
-
-#rentalCountText {
-    color:#ff0066;
+/* vedit - usual column (right) */
+.vedit td {
+    padding: 1em;
 }
