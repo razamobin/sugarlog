@@ -41,7 +41,9 @@ automate it (need to write pid to file)
     make a fabfile for setting up a brand new ubuntu instance with the production env
     add uwsgi.xml to git
     add a way to make production use a different config file (DEBUG = False)
+    might change deployment to copy to new dir, and use symlink
 
+style to add more contrast
 add comments support - so i can make suggestions to dad (probably make it somewhat generic so we can make comments back and forth)
 
 potential features:

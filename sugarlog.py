@@ -4,6 +4,7 @@ import redis
 import json
 import time
 import datetime
+import re
 
 DEBUG = True
 SECRET_KEY = 'dev key'
@@ -67,8 +68,8 @@ def new():
         return render_template('new.html', user={}, day_display=today_str(), day_input=time.strftime('%Y-%m-%d'))
 
 def day_str(time_struct):
-    s = time.strftime('%B %d', time_struct).lower()
-    i = int(s.split(' ')[1])
+    s = time.strftime('%B %e', time_struct).lower()
+    i = int(re.compile('\s+').split(s)[1]);
     if i in [1,21,31]:
         return s + 'st'
     elif i in [2,22] :
@@ -79,8 +80,8 @@ def day_str(time_struct):
         return s + 'th'
 
 def today_str():
-    s = time.strftime('%B %d').lower()
-    i = int(s.split(' ')[1])
+    s = time.strftime('%B %e').lower()
+    i = int(re.compile('\s+').split(s)[1]);
     if i in [1,21,31]:
         return s + 'st'
     elif i in [2,22] :

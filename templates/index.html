@@ -14,10 +14,10 @@
   <div id="wrapper">
   <p id="nav"><a href="/new">new entry</a></p>
   {% for day in days %}
-    <p id="day">{{ day }}</p>
+    <p class="day">{{ day }}</p>
     {% for entry in entries[day] %}
-    <p><span id="blood_sugar">{{ entry.blood_sugar }}</span> <span id="time">{{ entry.time }}</span></p>
-    <p id="notes">{{ entry.notes }}</p>
+    <p class="head"><span class="blood_sugar">{{ entry.blood_sugar }}</span> <span class="time">{{ entry.time }}</span></p>
+    <p class="notes">{{ entry.notes }}</p>
     {% endfor %}
   {% endfor %}
   </div>

@@ -8,27 +8,24 @@ html {
         }   
 
 body {
-        font: 62.5%/1.5 Verdana, Arial, Helvetica, sans-serif;
+        /* font: 12px Verdana, Arial, Helvetica, sans-serif; */
+        font: 75%/1.5 Verdana, Arial, Helvetica, sans-serif;
         }   
 
 #wrapper {
-        font-size: 1.2em;
+        font-size: 1em;
         line-height: 1.5em;
         }
 
 /* rest */
 #wrapper {
     width: 400px;
+    background: url(b2.gif);
     margin: 3em auto;
 }
 
 body {
 	color: #727272;
-}
-
-h1 {
-    font-size: 1.5em;
-    padding: .5em;
 }
 
 table {
@@ -71,43 +68,51 @@ textarea, .sm {
 }
 
 .date, .head_title { 
-    font-size: 1.5em;
-    line-height: 1em;
     margin-right: .5em; 
     float: left; 
     display: inline; 
 }
 
-p {
-    font-size: 1.5em;
-    line-height: 1.5em;
-}
-
-#notes {
-    margin-bottom: 1.5em;
+.notes {
     color: #aaa;
-    font-size: 1em;
-    line-height: 1.5em;
+    margin-bottom: 1.5em;
     /*background-color: #f7f7f7;*/
 }
 
-#blood_sugar {
+.blood_sugar {
     /*color: #ff0066;*/
     color: #FF4488;
 }
 
-#time {
+.time {
     /*color: #00adef;*/
 }
 
-#day {
-    margin-bottom: 1.5em;
+.day {
+    font-size: 1.5em;
+    line-height: 1em;
+
     color: #555;
+    margin-bottom: 1em;
     border-bottom: 1px solid #eee;
 }
 
+.head {
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+
 #nav {
+    font-size: 1.5em;
+    line-height: 1em;
+
     float: right;
+
+}
+
+#nav a {
+    text-decoration: none;
 }
 
 a:link {
@@ -124,17 +129,25 @@ a:hover {
 
 .head_title { 
     color: #00adef;
+    font-size: 1.5em;
+    line-height: 1em;
+    margin-bottom: .5em;
 }
 
 .date {
     color: #555;
+    font-size: 1.5em;
+    line-height: 1em;
+
 }
 
 .submit {
     padding: .25em;
-    font-size: 1.5em;
     color: #222;
     margin-left: .75em;
+    font-size: 1.5em;
+    line-height: 1em;
+
 }
 
 /* vedit - usual column (right) */
