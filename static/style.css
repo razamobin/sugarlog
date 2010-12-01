@@ -86,6 +86,8 @@ p {
 #notes {
     margin-bottom: 1.5em;
     color: #aaa;
+    font-size: 1em;
+    line-height: 1.5em;
     /*background-color: #f7f7f7;*/
 }
 
