@@ -16,7 +16,7 @@
   {% for day in days %}
     <p class="day">{{ day }}</p>
     {% for entry in entries[day] %}
-    <p class="head"><span class="blood_sugar">{{ entry.blood_sugar }}</span> <span class="time">{{ entry.time }}</span></p>
+    <p class="head"><span class="blood_sugar">{{ entry.blood_sugar }}</span> at <span class="time">{{ entry.time }}</span></p>
     <p class="notes">{{ entry.notes }}</p>
     {% endfor %}
   {% endfor %}
