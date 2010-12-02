@@ -82,6 +82,7 @@ textarea, .sm {
 
 .time {
     /*color: #00adef;*/
+    font-weight: bold;
 }
 
 .day {
