@@ -73,11 +73,6 @@ textarea, .sm {
     display: inline; 
 }
 
-.notes {
-    color: #aaa;
-    margin-bottom: 1.5em;
-    /*background-color: #f7f7f7;*/
-}
 
 .blood_sugar {
     /*color: #ff0066;*/
@@ -93,13 +88,22 @@ textarea, .sm {
     line-height: 1em;
 
     color: #555;
-    margin-bottom: 1em;
     border-bottom: 1px solid #eee;
+
+    margin-top: 2em;
 }
+
+.notes {
+    color: #aaa;
+    /*background-color: #f7f7f7;*/
+}
+
 
 .head {
     font-size: 1.5em;
     line-height: 1em;
+    margin-top: 1.5em;
+    margin-bottom: .5em;
 }
 
 

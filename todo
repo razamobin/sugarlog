@@ -44,7 +44,9 @@ automate it (need to write pid to file)
     might change deployment to copy to new dir, and use symlink
 
 style to add more contrast
+    2 column layout and put dates on the left (look at http://ministryoftype.co.uk/)
 add comments support - so i can make suggestions to dad (probably make it somewhat generic so we can make comments back and forth)
+add logins for me and dad, so we can comment back and forth, and other people can view only
 
 potential features:
 add reply button so dad can answer any questions i make in my comments
