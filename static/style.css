@@ -20,7 +20,7 @@ body {
 /* rest */
 #wrapper {
     width: 400px;
-    background: url(b2.gif);
+    /* background: url(b2.gif); */
     margin: 3em auto;
 }
 
@@ -77,6 +77,7 @@ textarea, .sm {
 .blood_sugar {
     /*color: #ff0066;*/
     color: #FF4488;
+    font-weight: bold;
 }
 
 .time {
@@ -90,7 +91,7 @@ textarea, .sm {
     color: #555;
     border-bottom: 1px solid #eee;
 
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 .notes {
@@ -100,10 +101,9 @@ textarea, .sm {
 
 
 .head {
-    font-size: 1.5em;
-    line-height: 1em;
+    font-size: 1em;
+    line-height: 1.5em;
     margin-top: 1.5em;
-    margin-bottom: .5em;
 }
 
 
