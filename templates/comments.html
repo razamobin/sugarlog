@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>blood sugar log</title>
+<style type="text/css" media="screen">
+/* <![CDATA[ */
+@import url(static/style.css);
+/* ]]> */
+</style>
+</head>
+<body>
+  <div id="wrapper">
+
+<form action="/comments" method="post">
+<table class="vedit" summary="New Entry">
+
+<tr> 
+  <td> 
+    <div class="date">{{ day_display }}</div> 
+    <input type="hidden" name="day" value="{{ day_input }}" />
+  </td> 
+</tr> 
+
+<tr> 
+  <td> 
+    <div class="head_title">entry id</div> 
+    <br class="clear" /> 
+    <div style="width: 280px; float: left;"><input class="required sm" type="text" name="entry_id" value="" size="15" /></div> 
+  </td> 
+</tr> 
+
+<tr> 
+  <td> 
+    <div class="head_title">name</div> 
+    <br class="clear" /> 
+    <div style="width: 280px; float: left;"><input class="required sm" type="text" name="author" value="" size="15" /></div> 
+  </td> 
+</tr> 
+
+<tr> 
+  <td> 
+    <div class="head_title">comment</div> 
+    <br class="clear" /> 
+    <div style="width: 280px; float: left;"><textarea name="comment" rows="6" cols="40"></textarea>
+  </td> 
+</tr> 
+
+</table>
+<input class="submit" type="submit" value="submit" />
+</form>
+  </div>
+</body>
+</html>

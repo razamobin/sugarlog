@@ -46,9 +46,20 @@ automate it (need to write pid to file)
 style to add more contrast
     2 column layout and put dates on the left (look at http://ministryoftype.co.uk/)
 add comments support - so i can make suggestions to dad (probably make it somewhat generic so we can make comments back and forth)
+    every post has list of comments in chrono order
+    every comment has author, and comment text, and date
+    start with new ui page
+        submit the post id, name, comment, auto save date
+        on new submit
+            incr global comment id
+            create top level comment hash with necessary data
+            add comment id to list field on the post hash
+            
+    add logic to show the comments
 add logins for me and dad, so we can comment back and forth, and other people can view only
 
 potential features:
+could show it to paleonu, paleohacks users as an example of the improvements a diabetic can make to life and blood sugar, see if people want to use the same thing, make it generic
 add reply button so dad can answer any questions i make in my comments
 add ability for me to highlight items in the list that are good, bad, neutral
 mark blood sugar as good/bad
