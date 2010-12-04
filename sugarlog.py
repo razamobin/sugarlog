@@ -40,11 +40,14 @@ def main():
             day_entries = []
             entries[day] = day_entries;
 
+        pieces = re.compile('\s+').split(day)
         day_entries.append({'day' : entry_data[i], 
             'time' : re.sub("([ap])m.*", "\\1m", entry_data[i+1]), 
             'blood_sugar' : entry_data[i+2], 
             'notes' : entry_data[i+3],
-            'entry_id' : entry_data[i+4]}) 
+            'entry_id' : entry_data[i+4],
+            'month' : pieces[0],
+            'day' : pieces[1]}) 
 
         entry_id = entry_data[i+4]
         # fetch comments for this entry

@@ -14,16 +14,19 @@
   <div id="wrapper">
 
   <div id="entries">
-  <h1>blood sugar log / <a href="/new">new entry</a></h1>
+  <h1>blood sugar log &bull; <a href="/new">new entry</a></h1>
   {% for day in days %}
     {% for entry in entries[day] %}
     <dl>
-        <dt><p class="day">{{ day }}</p><p class="time">{{ entry.time }}</p></dt>
+        <dt>
+            <p class="month">{{ entry.month }}</p>
+            <p class="day">{{ entry.day }}</p>
+            <p class="time">{{ entry.time }}</p></dt>
         <dd>
             <h2>{{ entry.blood_sugar }}</h2>
             <p>{{ entry.notes }}</p>
             {% for comment in commentsHash[entry.entry_id] %}
-            <p>{{ comment.comment }}</p>
+            <p class="comment">{{ comment.comment }}</p>
             {% endfor %}
         </dd>
     </dl>
