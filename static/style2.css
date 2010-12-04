@@ -8,15 +8,29 @@ body {
     font-family: Verdana, sans-serif;
 }
 
-h1 {
-    font-size: 2em;
+h1, h2 {
     font-family: Georgia, serif;
+}
+
+h1 {
+    margin-left: 8.5em;
+    font-size: 2em;
     line-height: 2.25em;
 }
 
+a {
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 2em;
+    line-height: 1.5em;
+}
+
+
 dt {
     float: left;
-    width: 200px;
+    width: 16em;
     font-size: 1em;
     border-right: 2px solid;
     margin-right: 1em;
@@ -38,7 +52,7 @@ dd {
 }
 
 dd p {
-    width: 400px;
+    width: 30em;
     font-size: 1em;
     line-height: 1.5em;
 }

@@ -32,7 +32,7 @@ def main():
         'sugarlog:entry:*->blood_sugar', 'sugarlog:entry:*->notes', '#'], True)
 
     for i in range(0, len(entry_data), 5):
-        day = day_str(time.strptime(entry_data[i], '%Y-%m-%d'), '%e')
+        day = day_str(time.strptime(entry_data[i], '%Y-%m-%d'), '%B %e')
         if day in entries:
             day_entries = entries[day]
         else:
