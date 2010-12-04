@@ -43,7 +43,7 @@ automate it (need to write pid to file)
     add a way to make production use a different config file (DEBUG = False)
     might change deployment to copy to new dir, and use symlink
 
-style to add more contrast
+x style to add more contrast
     2 column layout and put dates on the left (look at http://ministryoftype.co.uk/)
     style the comments a bit better, put down Raza says ...
 

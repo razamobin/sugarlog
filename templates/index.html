@@ -26,6 +26,7 @@
             <h2>{{ entry.blood_sugar }}</h2>
             <p>{{ entry.notes }}</p>
             {% for comment in commentsHash[entry.entry_id] %}
+            <p class="author">{{ comment.author}} says:</p>
             <p class="comment">{{ comment.comment }}</p>
             {% endfor %}
         </dd>

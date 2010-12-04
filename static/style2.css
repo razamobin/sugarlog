@@ -75,7 +75,8 @@ dd {
     color: #EE3C7E;
 }
 
-.comment {
+p.author {
+    margin-bottom: 0;
     color: #EE3C7E;
 }
 
