@@ -64,6 +64,17 @@ x style to add more contrast
 
 add logins for me and dad, so we can comment back and forth, and other people can view only
 clean up comment ui so you can click a link to reply
+    x need entry id to be passed to ui
+    x create an automatic form under the latest comment, or under the post with all the needed fields
+    x prefill the author with Raza or Pervez based on previous comment's author
+    x test submissions
+    make it ajax appear, reply links should be pink, dotted underline
+        x add id to each comment form
+        x add reply link
+        x include jquery lib
+        x add handler to reply link
+    style the form, link to my liking (lol will take years)
+    test and deploy
 
 x add comments support - so i can make suggestions to dad (probably make it somewhat generic so we can make comments back and forth)
     x every post has list of comments in reverse chrono order
@@ -77,6 +88,7 @@ x add comments support - so i can make suggestions to dad (probably make it some
     x add logic to show the comments
 
 potential features:
+make fabric script for syncing local db with production
 make notes about particular food items, clickable links
 could show it to paleonu, paleohacks users as an example of the improvements a diabetic can make to life and blood sugar, see if people want to use the same thing, make it generic
 add reply button so dad can answer any questions i make in my comments

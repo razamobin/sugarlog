@@ -40,6 +40,23 @@ def main():
             day_entries = []
             entries[day] = day_entries;
 
+        entry_id = entry_data[i+4]
+        # fetch comments for this entry
+        comment_data = g.redis.sort('sugarlog:entry:%s:comments' % entry_id,
+            0, 100, 'sugarlog:comment:*->timestamp', 
+            ['sugarlog:comment:*->author', 'sugarlog:comment:*->comment'], False)
+        last_author = ''
+        if comment_data:
+            # iterate with steps of 2
+            for j in range(0, len(comment_data), 2):
+                if entry_id in commentsHash:
+                    comments = commentsHash[entry_id]
+                else:
+                    comments = []
+                    commentsHash[entry_id] = comments
+                last_author = comment_data[j];
+                comments.append({'author' : comment_data[j], 'comment' : comment_data[j+1]})
+
         pieces = re.compile('\s+').split(day)
         day_entries.append({'day' : entry_data[i], 
             'time' : re.sub("([ap])m.*", "\\1m", entry_data[i+1]), 
@@ -47,22 +64,8 @@ def main():
             'notes' : entry_data[i+3],
             'entry_id' : entry_data[i+4],
             'month' : pieces[0],
-            'day' : pieces[1]}) 
-
-        entry_id = entry_data[i+4]
-        # fetch comments for this entry
-        comment_data = g.redis.sort('sugarlog:entry:%s:comments' % entry_id,
-            0, 100, 'sugarlog:comment:*->timestamp', 
-            ['sugarlog:comment:*->author', 'sugarlog:comment:*->comment'], True)
-        if comment_data:
-            # iterate with steps of 2
-            for i in range(0, len(comment_data), 2):
-                if entry_id in commentsHash:
-                    comments = commentsHash[entry_id]
-                else:
-                    comments = []
-                    commentsHash[entry_id] = comments
-                comments.append({'author' : comment_data[i], 'comment' : comment_data[i+1]})
+            'day' : pieces[1],
+            'next_author' : next_author(last_author)}) 
 
     return render_template('index.html', days=days, entries=entries, commentsHash=commentsHash)
 
@@ -103,7 +106,7 @@ def comments():
         g.redis.hmset('sugarlog:comment:%s' % comment_id, comment_hash)
 
         # append list of ids
-        g.redis.lpush('sugarlog:entry:%s:comments' % request.form.get('entry_id'), comment_id)
+        g.redis.rpush('sugarlog:entry:%s:comments' % request.form.get('entry_id'), comment_id)
 
         return redirect(url_for('main'))
     else:
@@ -127,6 +130,13 @@ def day_str(time_struct, format='%B %e'):
 
 def today_str():
     return day_str(time.gmtime())
+
+def next_author(last_author):
+    print last_author
+    if not last_author or last_author == 'Pervez':
+        return 'Raza'
+    else:
+        return 'Pervez'
 
 if __name__ == '__main__':
     app.run()

@@ -9,6 +9,8 @@
 @import url(static/style2.css);
 /* ]]> */
 </style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="static/script.js"></script>
 </head>
 <body>
   <div id="wrapper">
@@ -21,14 +23,26 @@
         <dt>
             <p class="month">{{ entry.month }}</p>
             <p class="day">{{ entry.day }}</p>
-            <p class="time">{{ entry.time }}</p></dt>
+            <p class="time">{{ entry.time }}</p>
+        </dt>
         <dd>
             <h2>{{ entry.blood_sugar }}</h2>
             <p>{{ entry.notes }}</p>
             {% for comment in commentsHash[entry.entry_id] %}
-            <p class="author">{{ comment.author}} says:</p>
+            <p class="author"><strong>{{ comment.author}}</strong> says:</p>
             <p class="comment">{{ comment.comment }}</p>
             {% endfor %}
+<a id="reply-link-{{ entry.entry_id }}" class="reply-link" href="reply">reply</a>
+<div class="comment-form">
+<form id="reply-{{ entry.entry_id }}" class="reply-form" action="/comments" method="post">
+    <input type="hidden" name="entry_id" value="{{ entry.entry_id }}" />
+    <label for="author">name</label>
+    <input class="field" type="text" name="author" value="{{ entry.next_author }}"></input>
+    <label for="comment">comment</label>
+    <textarea class="field" style="width: 20em;"name="comment" rows="6"></textarea>
+    <input class="submit" type="submit" value="submit" />
+</form>
+</div>
         </dd>
     </dl>
     <br />
