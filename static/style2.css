@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: small;
+    font-family: Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 2em;
+    font-family: Georgia, serif;
+    line-height: 2.25em;
+}
+
+dt {
+    float: left;
+    width: 200px;
+    font-size: 1em;
+    border-right: 2px solid;
+    margin-right: 1em;
+}
+
+dt p {
+    line-height: 1.5em;
+    text-align: right;
+    margin-right: 1em;
+}
+
+dl {
+    margin-top: 3em;
+}
+
+
+dd {
+    float: left;
+}
+
+dd p {
+    width: 400px;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+br {
+    clear: both;
+}
