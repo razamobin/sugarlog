@@ -32,7 +32,7 @@ def main():
         'sugarlog:entry:*->blood_sugar', 'sugarlog:entry:*->notes', '#'], True)
 
     for i in range(0, len(entry_data), 5):
-        day = day_str(time.strptime(entry_data[i], '%Y-%m-%d'))
+        day = day_str(time.strptime(entry_data[i], '%Y-%m-%d'), '%e')
         if day in entries:
             day_entries = entries[day]
         else:
@@ -41,7 +41,7 @@ def main():
             entries[day] = day_entries;
 
         day_entries.append({'day' : entry_data[i], 
-            'time' : entry_data[i+1], 
+            'time' : re.sub("([ap])m.*", "\\1m", entry_data[i+1]), 
             'blood_sugar' : entry_data[i+2], 
             'notes' : entry_data[i+3],
             'entry_id' : entry_data[i+4]}) 
@@ -106,9 +106,13 @@ def comments():
     else:
         return render_template('comments.html')
 
-def day_str(time_struct):
-    s = time.strftime('%B %e', time_struct).lower()
-    i = int(re.compile('\s+').split(s)[1]);
+def day_str(time_struct, format='%B %e'):
+    s = time.strftime(format, time_struct).lower()
+    pieces = re.compile('\s+').split(s)
+    if len(pieces) == 2:
+        i = int(pieces[1])
+    else:
+        i = int(pieces[0])
     if i in [1,21,31]:
         return s + 'st'
     elif i in [2,22] :

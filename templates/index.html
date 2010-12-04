@@ -6,23 +6,32 @@
   <title>blood sugar log</title>
 <style type="text/css" media="screen">
 /* <![CDATA[ */
-@import url(static/style.css);
+@import url(static/style2.css);
 /* ]]> */
 </style>
 </head>
 <body>
   <div id="wrapper">
   <p id="nav"><a href="/new">new entry</a></p>
+
+  <div id="entries">
   {% for day in days %}
-    <p class="day">{{ day }}</p>
     {% for entry in entries[day] %}
-    <p class="head"><span class="blood_sugar">{{ entry.blood_sugar }}</span> at <span class="time">{{ entry.time }}</span></p>
-    <p class="notes">{{ entry.notes }}</p>
-      {% for comment in commentsHash[entry.entry_id] %}
-        <p class="comments">{{ comment.comment }}</p>
-      {% endfor %}
+    <dl>
+        <dt><p class="time">{{ entry.time }}</p><p class="day">{{ day }}</p></dt>
+        <dd>
+            <h1>{{ entry.blood_sugar }}</h1>
+            <p>{{ entry.notes }}</p>
+            {% for comment in commentsHash[entry.entry_id] %}
+            <p>{{ comment.comment }}</p>
+            {% endfor %}
+        </dd>
+    </dl>
+    <br />
     {% endfor %}
   {% endfor %}
+  </div>
+
   </div>
 </body>
 </html>
