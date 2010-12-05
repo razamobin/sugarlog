@@ -129,7 +129,7 @@ def day_str(time_struct, format='%B %e'):
         return s + 'th'
 
 def today_str():
-    return day_str(time.gmtime())
+    return day_str(time.localtime())
 
 def next_author(last_author):
     print last_author
