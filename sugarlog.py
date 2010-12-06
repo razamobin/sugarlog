@@ -59,7 +59,7 @@ def main():
 
         pieces = re.compile('\s+').split(day)
         day_entries.append({'day' : entry_data[i], 
-            'time' : re.sub("([ap])m.*", "\\1m", entry_data[i+1]), 
+            'time' : re.sub("([ap])m.*", "\\1m", entry_data[i+1]).lower(), 
             'blood_sugar' : entry_data[i+2], 
             'notes' : entry_data[i+3],
             'entry_id' : entry_data[i+4],
@@ -132,7 +132,6 @@ def today_str():
     return day_str(time.localtime())
 
 def next_author(last_author):
-    print last_author
     if not last_author or last_author == 'Pervez':
         return 'Raza'
     else:
