@@ -7,7 +7,7 @@ import datetime
 import re
 
 DEBUG = True
-SECRET_KEY = 'dev key'
+SECRET_KEY = 'dev key lol'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
