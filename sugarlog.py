@@ -5,6 +5,10 @@ import json
 import time
 import datetime
 import re
+import urllib
+import urllib2
+import base64
+from multiprocessing import Process
 
 DEBUG = True
 SECRET_KEY = 'dev key lol'
@@ -87,12 +91,16 @@ def new():
 
         # append list of ids
         g.redis.lpush('sugarlog:entries', entry_id)
+        sms_msg = "new post! dad's blood sugar is %s: http://www.sugarlog.com" % request.form.get('blood_sugar')
 
+        p = Process(target=send_sms, args=(sms_msg,))
+        p.start()
+        
         return redirect(url_for('main'))
     else:
         return render_template('new.html', user={}, day_display=today_str(), day_input=time.strftime('%Y-%m-%d'))
 
-@app.route('/comments', methods=['GET', 'POST'])
+@app.route('/comments', methods=['POST'])
 def comments():
     if request.form.keys():
         comment_hash = {
@@ -111,6 +119,19 @@ def comments():
         return redirect(url_for('main'))
     else:
         return render_template('comments.html')
+
+def send_sms(message, to='858-663-2602'):
+
+    username = 'AC42de1d02120c4ee461f62f80a06d81f9'
+    password = '4a229a87dd612a30a7cfac5255fe318b'
+
+    post_params = urllib.urlencode({'From' : '858-367-9918', 'To' : to, 'Body' : message})
+    request = urllib2.Request('https://api.twilio.com/2010-04-01/Accounts/AC42de1d02120c4ee461f62f80a06d81f9/SMS/Messages')
+    base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
+    request.add_header("Authorization", "Basic %s" % base64string)   
+    result = urllib2.urlopen(request, post_params)
+    print result
+    return 'done!'
 
 def day_str(time_struct, format='%B %e'):
     s = time.strftime(format, time_struct).lower()

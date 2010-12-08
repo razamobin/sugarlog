@@ -9,9 +9,9 @@ x write sort in main func
 x write a non-styled ui index page to get the entries
 x markup
 x style it somehow
-(later) polish layouts etc
+x polish layouts etc
     x add link to new
-    (later) add h1, style it
+    x add h1, style it
 x set it up on ec2 instance
     x set up redis
     x put redis in fsync every second mode
@@ -31,17 +31,13 @@ x need to figure out version control for app (probably github)
     x set up the system (register, create repo, etc)
     x checkin current state of sugarlog
 
-automate it (need to write pid to file)
+x automate it (need to write pid to file)
     x learn about fabric
     x write a fabric file to fetch from version control (py file, templates dir, static dir), scp to server, HUP master process so children are restarted
     (later) restart uwsgi, and have it save master process pid to some standard location
     x test a few changes to the site (exciting !)
     x possibly combine git commit -a, and push origin master into fabfile (ask for user input on commit message)
     x figure out why git output doesnt show up in fabric - ans: local doesnt print by default
-    make a fabfile for setting up a brand new ubuntu instance with the production env
-    add uwsgi.xml to git
-    add a way to make production use a different config file (DEBUG = False)
-    might change deployment to copy to new dir, and use symlink
 
 x style to add more contrast
     2 column layout and put dates on the left (look at http://ministryoftype.co.uk/)
@@ -62,19 +58,18 @@ x style to add more contrast
         no color at first just grays
         clean markup
 
-add logins for me and dad, so we can comment back and forth, and other people can view only
-clean up comment ui so you can click a link to reply
+x clean up comment ui so you can click a link to reply
     x need entry id to be passed to ui
     x create an automatic form under the latest comment, or under the post with all the needed fields
     x prefill the author with Raza or Pervez based on previous comment's author
     x test submissions
-    make it ajax appear, reply links should be pink, dotted underline
+    x make it ajax appear, reply links should be pink, dotted underline
         x add id to each comment form
         x add reply link
         x include jquery lib
         x add handler to reply link
-    style the form, link to my liking (lol will take years)
-    test and deploy
+    x style the form, link to my liking (lol will take years)
+    x test and deploy
 
 x add comments support - so i can make suggestions to dad (probably make it somewhat generic so we can make comments back and forth)
     x every post has list of comments in reverse chrono order
@@ -87,12 +82,35 @@ x add comments support - so i can make suggestions to dad (probably make it some
             x add comment id to list field on the post hash
     x add logic to show the comments
 
+add email/text message notifications for new posts, so i get an email when he posts or comments, and he gets an email when i post
+    wget --post-data 'From=858-367-9918&To=858-663-2602&Body=razacool' https://AC42de1d02120c4ee461f62f80a06d81f9:4a229a87dd612a30a7cfac5255fe318b@api.twilio.com/2010-04-01/Accounts/AC42de1d02120c4ee461f62f80a06d81f9/SMS/Messages
+    start with messages to me
+    add messages for each reply
+    add info about author, date, entry 
+    change generic link to link to specific entry/comment
+    make it async
+insert current time by default, add ability to enter manual time
+add edits to comments, and to entries
+change deployment to copy to new dir, and use symlink, start new uwsgi, update cherokee, decommision old uwsgi
+make a fabfile for setting up a brand new ubuntu instance with the production env (uwsgi, cherokee/config, python libs, git src, start servers)
+add uwsgi.xml to git
+add a way to make production use a different config file (DEBUG = False)
+
 potential features:
+auto highlight the foods or give me a ui to do that or something
+blood sugar graphs, insulin graphs
+iphone/ipad app?
+add logins for me and dad, so other people can view only
 make fabric script for syncing local db with production
 make notes about particular food items, clickable links
 could show it to paleonu, paleohacks users as an example of the improvements a diabetic can make to life and blood sugar, see if people want to use the same thing, make it generic
-add reply button so dad can answer any questions i make in my comments
+hackernews, facebook, any/all friends
 add ability for me to highlight items in the list that are good, bad, neutral
 mark blood sugar as good/bad
-insert current time by default, add ability to enter manual time
-can also add email/text message notifications for new posts
+
+by 2010 my dad had been a diabetic for nearly 30 years
+at the time, i had recently read up on numerous online nutritional resources, especially relating to helping diabetics (see paleonu, high-fat-nutrition, bernstein)
+i was convinced by my own experimentation that this was the way humans were meant to eat, and so i encouraged my 
+dad to eat the same
+within a few months his daily insulin dosage dropped from 70 to 30, his a1c dropped from 9 to 6, and he felt better and more energetic in more than 10 years
+this is a log of his journey from 30 units a day to zero (typos and all)
