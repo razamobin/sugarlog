@@ -1,0 +1,9 @@
+<uwsgi>
+  <processes>2</processes>
+  <master/>
+  <harakiri>20</harakiri>
+  <app mountpoint="/">
+    <script>sugarlog:app</script>
+  </app>
+</uwsgi>
+

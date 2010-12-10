@@ -84,29 +84,29 @@ x add comments support - so i can make suggestions to dad (probably make it some
 
 add email/text message notifications for new posts, so i get an email when he posts or comments, and he gets an email when i post
     wget --post-data 'From=858-367-9918&To=858-663-2602&Body=razacool' https://AC42de1d02120c4ee461f62f80a06d81f9:4a229a87dd612a30a7cfac5255fe318b@api.twilio.com/2010-04-01/Accounts/AC42de1d02120c4ee461f62f80a06d81f9/SMS/Messages
-    start with messages to me
-    add messages for each reply
+    x start with messages to me
+    x make it async
+    add messages for each reply (maybe talk to dad first)
     add info about author, date, entry 
     change generic link to link to specific entry/comment
-    make it async
+
 insert current time by default, add ability to enter manual time
-add edits to comments, and to entries
 change deployment to copy to new dir, and use symlink, start new uwsgi, update cherokee, decommision old uwsgi
 make a fabfile for setting up a brand new ubuntu instance with the production env (uwsgi, cherokee/config, python libs, git src, start servers)
 add uwsgi.xml to git
 add a way to make production use a different config file (DEBUG = False)
+add edits to comments, and to entries
+add logins for me and dad, so other people can view only
 
 potential features:
-auto highlight the foods or give me a ui to do that or something
+auto highlight the foods or give me a ui to do that or something / add ability for me to highlight items in the list that are good, bad, neutral
 blood sugar graphs, insulin graphs
-iphone/ipad app?
-add logins for me and dad, so other people can view only
 make fabric script for syncing local db with production
 make notes about particular food items, clickable links
 could show it to paleonu, paleohacks users as an example of the improvements a diabetic can make to life and blood sugar, see if people want to use the same thing, make it generic
 hackernews, facebook, any/all friends
-add ability for me to highlight items in the list that are good, bad, neutral
 mark blood sugar as good/bad
+(prob not) iphone/ipad app?
 
 by 2010 my dad had been a diabetic for nearly 30 years
 at the time, i had recently read up on numerous online nutritional resources, especially relating to helping diabetics (see paleonu, high-fat-nutrition, bernstein)
@@ -114,3 +114,26 @@ i was convinced by my own experimentation that this was the way humans were mean
 dad to eat the same
 within a few months his daily insulin dosage dropped from 70 to 30, his a1c dropped from 9 to 6, and he felt better and more energetic in more than 10 years
 this is a log of his journey from 30 units a day to zero (typos and all)
+
+todo 12/8
+---
+
+write automated server setup script (start w clean ubuntu, get uwsgi, cherokee, get sugarlog src, get libs, config cherokee, config sugar log, start everything)
+write a new deploy script to swap uwsgis, etc
+
+test it all out a few times
+
+speed up the main page (down to 250ms or less)
+gzip
+pagination
+other options
+
+add registration and login
+dont require it until dad is logged in
+once logged in you can reply without typing in your name
+anon users cannot reply or post
+only dad can post
+
+create a url for dad like sugarlog.com/pervez
+
+highlight newest posts - so it will highlight posts that have been made since you last logged in and saw that page

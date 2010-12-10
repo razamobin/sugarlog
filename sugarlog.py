@@ -130,7 +130,6 @@ def send_sms(message, to='858-663-2602'):
     base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
     request.add_header("Authorization", "Basic %s" % base64string)   
     result = urllib2.urlopen(request, post_params)
-    print result
     return 'done!'
 
 def day_str(time_struct, format='%B %e'):
