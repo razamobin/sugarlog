@@ -1,4 +1,4 @@
-<uwsgi>
+<!--<uwsgi>
   <processes>2</processes>
   <master/>
   <harakiri>20</harakiri>
@@ -6,4 +6,15 @@
     <script>sugarlog:app</script>
   </app>
 </uwsgi>
+-->
 
+<uwsgi>
+  <socket>127.0.0.1:3031</socket>
+  <module>sugarlog:app</module>
+  <processes>2</processes>
+  <master/>
+  <harakiri>20</harakiri>
+  <limit-as>128</limit-as>
+  <pythonpath>/usr/src/sugarlog</pythonpath>
+  <home>/usr/src/sugarlog</home>
+</uwsgi>
