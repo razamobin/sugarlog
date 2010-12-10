@@ -10,15 +10,12 @@ import urllib2
 import base64
 from multiprocessing import Process
 
-DEBUG = True
-SECRET_KEY = 'dev key lol'
-
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_object('configmodule.Config')
 
 @app.before_request
 def before_request():
-    g.redis= redis.Redis()
+    g.redis= redis.Redis(host=app.config['REDIS_HOST'], port=int(app.config['REDIS_PORT']))
 
 @app.after_request
 def after_request(response):
