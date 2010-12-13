@@ -3,7 +3,7 @@ import fabric
 from fabric.contrib.console import confirm
 
 env.user = 'ubuntu'
-env.hosts = ['ec2-174-129-151-29.compute-1.amazonaws.com']
+env.hosts = ['50.16.215.37']
 env.key_filename = '/home/rmobin/.ssh/ec2-sample-key.pem'
 def setup():
     with cd('/usr/src'):
@@ -36,4 +36,5 @@ def setup():
     # use production config (prod redis, etc)
     with cd('/usr/src/sugarlog'):
         sudo('cp /usr/src/sugarlog/server/production.py /usr/src/sugarlog/configmodule.py')
-    # kill current cherokee, start cherokee (to load my config)
+    # restart cherokee so it uses my config
+        sudo('/etc/init.d/cherokee restart')

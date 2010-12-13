@@ -82,6 +82,10 @@ x add comments support - so i can make suggestions to dad (probably make it some
             x add comment id to list field on the post hash
     x add logic to show the comments
 
+x make a fabfile for setting up a brand new ubuntu instance with the production env (uwsgi, cherokee/config, python libs, git src, start servers)
+x add uwsgi.xml to git
+x add a way to make production use a different config file (DEBUG = False)
+
 add email/text message notifications for new posts, so i get an email when he posts or comments, and he gets an email when i post
     wget --post-data 'From=858-367-9918&To=858-663-2602&Body=razacool' https://AC42de1d02120c4ee461f62f80a06d81f9:4a229a87dd612a30a7cfac5255fe318b@api.twilio.com/2010-04-01/Accounts/AC42de1d02120c4ee461f62f80a06d81f9/SMS/Messages
     x start with messages to me
@@ -92,9 +96,6 @@ add email/text message notifications for new posts, so i get an email when he po
 
 insert current time by default, add ability to enter manual time
 change deployment to copy to new dir, and use symlink, start new uwsgi, update cherokee, decommision old uwsgi
-make a fabfile for setting up a brand new ubuntu instance with the production env (uwsgi, cherokee/config, python libs, git src, start servers)
-add uwsgi.xml to git
-add a way to make production use a different config file (DEBUG = False)
 add edits to comments, and to entries
 add logins for me and dad, so other people can view only
 
@@ -118,21 +119,50 @@ this is a log of his journey from 30 units a day to zero (typos and all)
 todo 12/8
 ---
 
-write automated server setup script (start w clean ubuntu, get uwsgi, cherokee, get sugarlog src, get libs, config cherokee, config sugar log, start everything)
+x write automated server setup script (start w clean ubuntu, get uwsgi, cherokee, get sugarlog src, get libs, config cherokee, config sugar log, start everything)
 write a new deploy script to swap uwsgis, etc
 
-test it all out a few times
-
-speed up the main page (down to 250ms or less)
-gzip
-pagination
-other options
+x test it all out a few times
 
 add registration and login
+    add flash messages
+    test/polish up all the interactions and the nav/ui
+    x front page link / main nav
+    x backend func, bcrypt
+    x ui page
+    x start with /login, no unstyled page
+        fields are name, email, password
+        need
+            authenticate
+                take in email, pass, hash the pass and make sure it matches the hash in the db
+                get username:raza.mobin@gmail.com, 1
+                hash the pass and see if it matches
+                set session['user_id'] = uid
+                
+            signup
+                uid:1:username = raza.mobin@gmail.com
+                uid:1:pass = abc123
+                username:raza.mobin@gmail.com:uid = 1
+        next_user_id
+        logout
+
 dont require it until dad is logged in
 once logged in you can reply without typing in your name
 anon users cannot reply or post
 only dad can post
+
+with logins i can start adding logic to show what is new since you last visited, also to show notifications of what's new in the top area, text / emails etc
+
+organize template files, refactor common html
+consolidate css
+make all pages look similar and have same main nav (if applicable)
+
+add tests for all current functionality, also add selenium tests
+
+speed up the main page (down to 250ms or less RTT)
+x gzip
+pagination
+other options
 
 create a url for dad like sugarlog.com/pervez
 

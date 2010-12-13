@@ -9,18 +9,73 @@ import urllib
 import urllib2
 import base64
 from multiprocessing import Process
+import bcrypt
 
 app = Flask(__name__)
 app.config.from_object('configmodule.Config')
+app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=65)
 
 @app.before_request
 def before_request():
     g.redis= redis.Redis(host=app.config['REDIS_HOST'], port=int(app.config['REDIS_PORT']))
+    g.user = None
+    if 'user_id' in session:
+        g.user = g.redis.hgetall('sugarlog:uid:%s' % session['user_id'])
 
 @app.after_request
 def after_request(response):
     g.redis.connection.disconnect()
     return response
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.form.keys():
+        username = request.form.get('first_name')
+        existing_user = g.redis.get('sugarlog:username:%s:uid' % username)
+        if not existing_user:
+            # flash message that there is no user
+            return render_template('login.html', button='log in', action='/login')
+
+        hashed = g.redis.hget('sugarlog:uid:%s' % existing_user, 'password')
+        if not bcrypt.hashpw(request.form.get('password'), hashed) == hashed:
+            # flash message that pw doesnt match
+            return render_template('login.html', button='log in', action='/login')
+
+        session.permanent = True
+        session['user_id'] = existing_user
+        #flash("You're now logged in")
+        return redirect(url_for('main'))
+    else:
+        return render_template('login.html', button='log in', action='/login')
+
+@app.route('/logout')
+def logout():
+    # flash message that you are logged out
+    session.pop('user_id', None)
+    #flash("You're now logged out")
+    return redirect(url_for('main'))
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.form.keys():
+        username = request.form.get('first_name')
+        existing_user = g.redis.get('sugarlog:username:%s:uid' % username)
+        if existing_user:
+            # flash message that user exists already
+            return render_template('login.html', button='sign up', action='/signup')
+        user = {
+            'username' : username,
+            'password' : bcrypt.hashpw(request.form.get('password'), bcrypt.gensalt())
+        }
+        user_id = g.redis.incr('global:next_user_id')
+        g.redis.hmset('sugarlog:uid:%s' % user_id, user)
+        g.redis.set('sugarlog:username:%s:uid' % username, user_id)
+        session.permanent = True
+        session['user_id'] = user_id
+        # flash message for successful signup
+        return redirect(url_for('main'))
+    else:
+        return render_template('login.html', button='sign up', action='/signup')
 
 @app.route('/')
 def main():

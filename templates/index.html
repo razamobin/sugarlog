@@ -14,9 +14,30 @@
 </head>
 <body>
   <div id="wrapper">
+    
+  <div id="header">
+    <h3 id="title">sugar log &raquo; <a href="/new">new entry</a></h3>
+    {% if g.user %}
+    <h3 id="nav">hello <strong>{{ g.user.username }}</strong> &bull; <a href="/logout">logout</a></h3>
+    {% else %}
+    <h3 id="nav"><a href="/signup">sign up</a> or <a href="/login">log in</a></h3>
+    {% endif %}
+    <br />
+  </div>
+
+  <!--
+  {% with flashes = get_flashed_messages() %}
+    {% if flashes %}
+      <ul class="flashes">
+      {% for message in flashes %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+    -->
 
   <div id="entries">
-  <h1>blood sugar log &bull; <a href="/new">new entry</a></h1>
   {% for day in days %}
     {% for entry in entries[day] %}
     <dl>
@@ -36,8 +57,12 @@
 <div class="comment-form">
 <form id="reply-{{ entry.entry_id }}" class="reply-form" action="/comments" method="post">
     <input type="hidden" name="entry_id" value="{{ entry.entry_id }}" />
+    {% if g.user %}
+    <input class="field" type="hidden" name="author" value="{{ g.user.username }}"></input>
+    {% else %}
     <label for="author">name</label>
     <input class="field" type="text" name="author" value="{{ entry.next_author }}"></input>
+    {% endif %}
     <label for="comment">comment</label>
     <textarea class="field" style="width: 20em;"name="comment" rows="6"></textarea>
     <input class="submit" type="submit" value="submit" />

@@ -23,6 +23,33 @@ h1 {
     margin-left: 4.5em;
 }
 
+h3 {
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 2em;
+}
+
+#title {
+    font-family: Georgia, serif;
+    font-size: 2em;
+    float: left;
+}
+
+#nav {
+    float: right;
+    font-size: 1em;
+    line-height: 1em;
+    margin-top: 2em;
+}
+
+#header {
+    border-bottom: 2px solid black;
+}
+
+#entries {
+    clear: both;
+}
+
 a {
     text-decoration: none;
     border-bottom: 1px dotted;
