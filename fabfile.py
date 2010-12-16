@@ -16,7 +16,7 @@ def deploy():
     print out
     out = local('git push origin master')
     print out
-    local('tar czf /tmp/sugarlog.tgz sugarlog.py static templates')
+    local('tar czf /tmp/sugarlog.tgz *.py static templates server')
     put('/tmp/sugarlog.tgz', '/tmp/')
     with cd('/mnt/sda/sugarlog'):
         run('sudo tar xzf /tmp/sugarlog.tgz')
