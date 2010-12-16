@@ -86,18 +86,6 @@ x make a fabfile for setting up a brand new ubuntu instance with the production 
 x add uwsgi.xml to git
 x add a way to make production use a different config file (DEBUG = False)
 
-add email/text message notifications for new posts, so i get an email when he posts or comments, and he gets an email when i post
-    wget --post-data 'From=858-367-9918&To=858-663-2602&Body=razacool' https://AC42de1d02120c4ee461f62f80a06d81f9:4a229a87dd612a30a7cfac5255fe318b@api.twilio.com/2010-04-01/Accounts/AC42de1d02120c4ee461f62f80a06d81f9/SMS/Messages
-    x start with messages to me
-    x make it async
-    add messages for each reply (maybe talk to dad first)
-    add info about author, date, entry 
-    change generic link to link to specific entry/comment
-
-insert current time by default, add ability to enter manual time
-change deployment to copy to new dir, and use symlink, start new uwsgi, update cherokee, decommision old uwsgi
-add edits to comments, and to entries
-add logins for me and dad, so other people can view only
 
 potential features:
 auto highlight the foods or give me a ui to do that or something / add ability for me to highlight items in the list that are good, bad, neutral
@@ -146,24 +134,60 @@ add registration and login
         next_user_id
         logout
 
-dont require it until dad is logged in
-once logged in you can reply without typing in your name
-anon users cannot reply or post
-only dad can post
+x once logged in you can reply without typing in your name
+
+add login w open id or something similar?
+change login status to occur whenever you submit your comment
+    later add, set password functionality to claim your account
+
+add login functionality for me and dad
+add logic so that other people can view only
+    anon users cannot reply or post
+    only dad can post
+    only i cant comment
+    only owners of entry/reply can edit
+
+add email/text message notifications for new posts, so i get an email when he posts or comments, and he gets an email when i post
+    wget --post-data 'From=858-367-9918&To=858-663-2602&Body=razacool' https://AC42de1d02120c4ee461f62f80a06d81f9:4a229a87dd612a30a7cfac5255fe318b@api.twilio.com/2010-04-01/Accounts/AC42de1d02120c4ee461f62f80a06d81f9/SMS/Messages
+    x start with messages to me
+    x make it async
+    add messages for each reply (maybe talk to dad first)
+    add info about author, date, entry 
+    change generic link to link to specific entry/comment
+
+make list of food items that lead to higher blood sugar in the morning - a food blacklist based on data
+add edits to comments, and to entries
+insert current time by default, add ability to enter manual time (manual day entry as well)
+change deployment to copy to new dir, and use symlink, start new uwsgi, update cherokee, decommision old uwsgi
 
 with logins i can start adding logic to show what is new since you last visited, also to show notifications of what's new in the top area, text / emails etc
+    highlight newest posts - so it will highlight posts that have been made since you last logged in and saw that page
+
+create a url for dad like sugarlog.com/pervez
 
 organize template files, refactor common html
 consolidate css
 make all pages look similar and have same main nav (if applicable)
 
-add tests for all current functionality, also add selenium tests
-
-speed up the main page (down to 250ms or less RTT)
-x gzip
-pagination
-other options
-
-create a url for dad like sugarlog.com/pervez
-
-highlight newest posts - so it will highlight posts that have been made since you last logged in and saw that page
+add tests for all current functionality
+    new post
+        logged in
+        x logged out (impossible eventually)
+    reply to post
+        logged in 
+        x logged out (impossible eventually)
+    signup
+        x success
+        fail - user exists
+        faile invalid user/pw (ie length or whatever)
+    login
+        x success
+        fail - user dne
+        fail - user exists, invalid pw
+    x logout 
+        x success
+    
+x speed up the main page (down to 250ms or less RTT)
+    x gzip
+    x change zone to us-west
+    (not needed) pagination

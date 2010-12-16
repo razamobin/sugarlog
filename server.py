@@ -3,8 +3,8 @@ import fabric
 from fabric.contrib.console import confirm
 
 env.user = 'ubuntu'
-env.hosts = ['50.16.215.37']
-env.key_filename = '/home/rmobin/.ssh/ec2-sample-key.pem'
+env.hosts = ['ec2-50-18-4-1.us-west-1.compute.amazonaws.com']
+env.key_filename = '/home/rmobin/.ssh/id_raza-west'
 def setup():
     with cd('/usr/src'):
         sudo('add-apt-repository ppa:cherokee-webserver')

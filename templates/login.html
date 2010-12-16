@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>blood sugar log</title>
+<style type="text/css" media="screen">
+/* <![CDATA[ */
+@import url(static/style.css);
+/* ]]> */
+</style>
+</head>
+<body>
+  <div id="wrapper">
+
+<form action="{{ action }}" method="post">
+<table class="vedit" summary="New Entry">
+
+<tr> 
+  <td> 
+    <div class="head_title">first name</div> 
+    <br class="clear" /> 
+    <div style="width: 280px; float: left;"><input class="required sm" type="text" name="first_name" value="" size="15" /></div> 
+  </td> 
+</tr> 
+
+<!--
+<tr> 
+  <td> 
+    <div class="head_title">password</div> 
+    <br class="clear" /> 
+    -->
+    <div style="width: 280px; float: left;"><input class="required sm" type="hidden" name="password" value="" size="15" /></div> 
+<!--
+  </td> 
+</tr> 
+    -->
+
+</table>
+<input class="submit" type="submit" value="{{ button }}" />
+</form>
+  </div>
+</body>
+</html>

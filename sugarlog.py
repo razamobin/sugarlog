@@ -145,6 +145,25 @@ def new():
         g.redis.lpush('sugarlog:entries', entry_id)
         sms_msg = "new post! dad's blood sugar is %s: http://www.sugarlog.com" % request.form.get('blood_sugar')
 
+        # if not logged in
+        if 'user_id' not in session:
+            # create user Pervez if dne
+            existing_user = g.redis.get('sugarlog:username:%s:uid' % 'Pervez')
+            if not existing_user:
+                username = 'Pervez'
+                user = {
+                    'username' : username,
+                    'password' : bcrypt.hashpw('', bcrypt.gensalt())
+                }
+                user_id = g.redis.incr('global:next_user_id')
+                g.redis.hmset('sugarlog:uid:%s' % user_id, user)
+                g.redis.set('sugarlog:username:%s:uid' % username, user_id)
+                existing_user = user_id
+
+            # log in as Pervez
+            session.permanent = True
+            session['user_id'] = existing_user
+
         p = Process(target=send_sms, args=(sms_msg,))
         p.start()
         
@@ -173,6 +192,8 @@ def comments():
         return render_template('comments.html')
 
 def send_sms(message, to='858-663-2602'):
+    if app.config['TESTING']:
+        return 'testing!'
 
     username = 'AC42de1d02120c4ee461f62f80a06d81f9'
     password = '4a229a87dd612a30a7cfac5255fe318b'
