@@ -3,7 +3,7 @@ import fabric
 from fabric.contrib.console import confirm
 
 env.user = 'ubuntu'
-env.hosts = ['ec2-50-18-4-1.us-west-1.compute.amazonaws.com']
+env.hosts = ['50.18.57.226']
 env.key_filename = '/home/rmobin/.ssh/id_raza-west'
 def setup():
     with cd('/usr/src'):
@@ -29,6 +29,7 @@ def setup():
     with cd('/usr/src/sugarlog'):
     # install pip python libs
         sudo('/usr/src/sugarlog/bin/pip install flask==0.6')
+        sudo('/usr/src/sugarlog/bin/pip install py-bcrypt')
     # install redis py
         sudo('git clone git://github.com/andymccurdy/redis-py.git')
     with cd('/usr/src/sugarlog/redis-py'):

@@ -96,6 +96,7 @@ could show it to paleonu, paleohacks users as an example of the improvements a d
 hackernews, facebook, any/all friends
 mark blood sugar as good/bad
 (prob not) iphone/ipad app?
+(later or never) add login w open id or something similar?
 
 by 2010 my dad had been a diabetic for nearly 30 years
 at the time, i had recently read up on numerous online nutritional resources, especially relating to helping diabetics (see paleonu, high-fat-nutrition, bernstein)
@@ -136,9 +137,23 @@ add registration and login
 
 x once logged in you can reply without typing in your name
 
-add login w open id or something similar?
-change login status to occur whenever you submit your comment
-    later add, set password functionality to claim your account
+x change login status to occur whenever you submit entry
+later add, set password functionality to claim your account
+
+x move over to us west for nice latency savings
+    x start new ec2 west server
+    x hook up ebs
+    x copy latest db
+    x set linux date
+    x run normal server setup script
+    x start local redis
+    x change config to point to local redis
+    x test site using *.sugarlog.com in local etc hosts
+    x get elastic ip
+    x update zoneedit  to point to new ip
+    x profit!!!
+
+need new update server script - assume server was created using fresh fab file
 
 add login functionality for me and dad
 add logic so that other people can view only
