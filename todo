@@ -153,6 +153,8 @@ x move over to us west for nice latency savings
     x update zoneedit  to point to new ip
     x profit!!!
 
+insert current time by default, add ability to enter manual time (manual day entry as well)
+add edits to comments, and to entries
 need new update server script - assume server was created using fresh fab file
 
 add login functionality for me and dad
@@ -171,8 +173,6 @@ add email/text message notifications for new posts, so i get an email when he po
     change generic link to link to specific entry/comment
 
 make list of food items that lead to higher blood sugar in the morning - a food blacklist based on data
-add edits to comments, and to entries
-insert current time by default, add ability to enter manual time (manual day entry as well)
 change deployment to copy to new dir, and use symlink, start new uwsgi, update cherokee, decommision old uwsgi
 
 with logins i can start adding logic to show what is new since you last visited, also to show notifications of what's new in the top area, text / emails etc

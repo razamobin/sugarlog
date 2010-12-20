@@ -16,4 +16,18 @@
         }
         return false;
     });
- });
+
+    var d = new Date();
+    var t = d.getTime();
+    t = t - 4 * 60 * 60 * 1000;
+    t = Math.floor(t / 1000 / 60 / 60) * 60 * 60 * 1000;
+    d.setTime(t);
+
+
+    // add time picker on new page
+    $("#timestart").timePicker({
+        startTime: d,
+        show24Hours: false,
+        separator: '.',
+        step: 15});
+    });

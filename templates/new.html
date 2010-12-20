@@ -9,6 +9,15 @@
 @import url(static/style.css);
 /* ]]> */
 </style>
+<style type="text/css" media="screen">
+/* <![CDATA[ */
+@import url(static/timePicker.css);
+/* ]]> */
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
+<script type="text/javascript" src="static/jquery.timePicker.js"></script>
+<script type="text/javascript" src="static/script.js"></script>
 </head>
 <body>
   <div id="wrapper">
@@ -27,7 +36,7 @@
   <td> 
     <div class="head_title">time of day</div> 
     <br class="clear" /> 
-    <div style="width: 280px; float: left;"><input class="required sm" type="text" name="time" value="" size="15" /></div> 
+    <div style="width: 280px; float: left;"><input id="timestart" class="required sm" type="text" name="time" value="" size="15" /></div> 
   </td> 
 </tr> 
 
