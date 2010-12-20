@@ -1,6 +1,6 @@
 div.time-picker {
   position: absolute;
-  height: 30em;
+  height: 15em;
   width:6em; /* needed for IE */
   overflow: auto;
   background: #fff;
@@ -20,7 +20,8 @@ div.time-picker ul {
 div.time-picker li {
   cursor: pointer;
   height: 10px;
-  font: 12px/1 Helvetica, Arial, sans-serif;
+  /* font: 12px/1 Helvetica, Arial, sans-serif; */
+  font: 12px/1 "Lucida Console", "Courier New", monospace;
   padding: 4px 3px;
 }
 div.time-picker li.selected {

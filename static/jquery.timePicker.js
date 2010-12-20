@@ -49,7 +49,8 @@
 
     // Build the list.
     for(var i = 0; i < times.length; i++) {
-      $tpList.append("<li>" + times[i] + "</li>");
+      var timeClass = 'a' + times[i].replace('&nbsp;', '').replace('.', '');
+      $tpList.append('<li class="' + timeClass + '">' + times[i] + '</li>');
     }
     $tpDiv.append($tpList);
     // Append the timPicker to the body and position it.
@@ -96,13 +97,25 @@
       var steps = Math.round(min / settings.step);
       var roundTime = normaliseTime(new Date(0, 0, 0, 0, (steps * settings.step + startMin), 0));
       roundTime = (startTime < roundTime && roundTime <= endTime) ? roundTime : startTime;
-      var $matchedTime = $("li:contains(" + formatTime(roundTime, settings) + ")", $tpDiv);
+      var $matchedTime = $("li:contains(" + formatTimeForMatch(roundTime, settings) + ")", $tpDiv);
+
+      if (elm.value.trim() === '') {
+        // take current time, if it's 2am to 12am truncate to the hour, minus 2 hours, and set the scroll to show that time first
+        var now = new Date();
+        if (now.getHours() > 1) {
+            now.setHours(now.getHours() - 2);
+            now.setMinutes(0);
+            var timeClass = 'a' + formatTime(now, settings).replace('&nbsp;', '').replace('.', '');
+            var $matchedTime = $("." + timeClass);
+        }
+      } 
 
       if ($matchedTime.length) {
         $matchedTime.addClass("selected");
         // Scroll to matched time.
         $tpDiv[0].scrollTop = $matchedTime[0].offsetTop;
-      }
+      } 
+
       return true;
     };
     // Attach to click as well as focus so timePicker can be shown again when
@@ -226,6 +239,13 @@
     var hours = settings.show24Hours ? h : (((h + 11) % 12) + 1);
     var minutes = time.getMinutes();
     return formatHour(hours) + settings.separator + formatNumber(minutes) + (settings.show24Hours ? '' : ((h < 12) ? 'am' : 'pm'));
+  }
+
+  function formatTimeForMatch(time, settings) {
+    var h = time.getHours();
+    var hours = settings.show24Hours ? h : (((h + 11) % 12) + 1);
+    var minutes = time.getMinutes();
+    return hours + settings.separator + formatNumber(minutes) + (settings.show24Hours ? '' : ((h < 12) ? 'am' : 'pm'));
   }
 
   function formatHour(value) {
