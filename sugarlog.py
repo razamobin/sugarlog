@@ -115,7 +115,7 @@ def main():
 
         pieces = re.compile('\s+').split(day)
         day_entries.append({'day' : entry_data[i], 
-            'time' : re.sub("([ap])m.*", "\\1m", entry_data[i+1]).lower(), 
+            'time' : re.sub("([ap])m.*", "\\1m", entry_data[i+1]).lower().replace('.00', ''), 
             'blood_sugar' : entry_data[i+2], 
             'notes' : entry_data[i+3],
             'entry_id' : entry_data[i+4],

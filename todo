@@ -108,7 +108,7 @@ todo 12/8
 ---
 
 x write automated server setup script (start w clean ubuntu, get uwsgi, cherokee, get sugarlog src, get libs, config cherokee, config sugar log, start everything)
-write a new deploy script to swap uwsgis, etc
+write a new deploy script to swap uwsgis, etc, check out from version control
 
 x test it all out a few times
 
