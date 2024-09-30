@@ -1,6 +1,7 @@
-# dugarlog
+# sugarlog
 
 A site that my Dad and I use to track his blood sugar and the foods/activities that influence it :)
+
 demo link: [https://sugarlog.life](https://sugarlog.life)
 
 ![Blood Sugar Monitoring App Screenshot](/images/sugarlog.png)
