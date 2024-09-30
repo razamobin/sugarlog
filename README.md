@@ -1,6 +1,6 @@
-# SugarLog - Blood Sugar Monitoring App
+# Sugarlog
 
-This app allows users to log their daily blood sugar readings, insulin dosage, food intake, and exercise. It provides a platform for tracking and analyzing blood sugar trends over time.
+A site that my Dad and I use to track his blood sugar and the foods/activities that influence it :)
 
 ![Blood Sugar Monitoring App Screenshot](/images/sugarlog.png)
 
@@ -14,4 +14,4 @@ This app allows users to log their daily blood sugar readings, insulin dosage, f
 
 ## Demo
 
-You can try out the live demo of the app here: [Blood Sugar Monitoring App Demo](https://sugarlog.life)
+You can try out the live demo of the app here: [https://sugarlog.life](https://sugarlog.life)
