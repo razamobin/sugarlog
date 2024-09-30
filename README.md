@@ -13,3 +13,5 @@ demo link: [https://sugarlog.life](https://sugarlog.life)
 - Log food intake for each meal
 - Track exercise activities
 - Comment system for feedback and encouragement
+
+## Raza
