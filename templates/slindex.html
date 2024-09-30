@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title }}</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="static/sljquery.js"></script>
+        <script src="static/slscript.js"></script>
+    </head>
+    <body class="bg-gray-100 text-gray-800 font-sans">
+        <header class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-4 max-w-4xl">
+                <div class="flex justify-between items-center">
+                    <a href="/" class="text-3xl font-semibold no-underline">
+                        sugar<span class="text-pink-600">log</span>
+                    </a>
+                    <a
+                        href="/slnew"
+                        class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition"
+                        >New Post</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <div class="container mx-auto px-4 py-8 max-w-4xl">
+            <div class="space-y-8">
+                {% for post in posts %}
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="flex relative">
+                        <div class="w-24 bg-pink-100 p-6 flex items-start justify-center flex-shrink-0">
+                            <span class="text-3xl font-bold text-pink-600">{{ post.blood_sugar }}</span>
+                        </div>
+                        <div class="flex-grow p-6">
+                            <p class="text-xl font-semibold">
+                                {{ post.month|capitalize }} {{ post.day }}
+                            </p>
+                            <p class="text-gray-600">{{ post.notes }}</p>
+                            <div class="bg-gray-50 rounded p-4 mt-4">
+                                {% if post.id in comments.keys() %} {% for
+                                comment in comments[post.id] %}
+                                <p class="mb-2">
+                                    <strong>{{comment.author}}:</strong> {{
+                                    comment.comment }}
+                                </p>
+                                {% endfor %} {% endif %}
+                                <p id="reply_{{ post.id }}" class="text-sm reply">
+                                    <a href="#reply" class="text-pink-600 hover:underline">reply</a>
+                                </p>
+                                <form
+                                    action="/slcomment"
+                                    method="post"
+                                    class="mt-4 hidden new_comment"
+                                    id="new_comment_{{ post.id }}"
+                                    onsubmit="return submitComment(event, {{ post.id }})"
+                                >
+                                    <select name="author" class="w-full mb-2 p-2 border rounded">
+                                        <option value="family" {% if post.default_commenter == 'family' %}selected{% endif %}>family</option>
+                                        <option value="raza" {% if post.default_commenter == 'raza' %}selected{% endif %}>raza</option>
+                                    </select>
+                                    <textarea name="comment" rows="3" class="w-full mb-2 p-2 border rounded" placeholder="Your comment"></textarea>
+                                    <input type="hidden" name="post_id" value="{{ post.id }}">
+                                    <button type="submit" class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition">Reply</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="w-24 bg-gray-50 flex-shrink-0">
+                            <!-- This column is intentionally left empty -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="flex justify-between mt-8">
+                <div>
+                    {% if previous != None %} {% if previous == 0 %}
+                    <a href="/" class="text-pink-600 hover:underline"
+                        >&laquo; previous</a
+                    >
+                    {% else %}
+                    <a
+                        href="/?skip={{ previous }}"
+                        class="text-pink-600 hover:underline"
+                        >&laquo; Previous</a
+                    >
+                    {% endif %} {% endif %}
+                </div>
+                <div>
+                    {% if next != None %}
+                    <a
+                        href="/?skip={{ next }}"
+                        class="text-pink-600 hover:underline"
+                        >next &raquo;</a
+                    >
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
